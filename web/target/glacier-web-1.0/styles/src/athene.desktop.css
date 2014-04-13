@@ -1,0 +1,19 @@
+.desktop {
+    border: 0;
+    overflow: hidden;
+    background-color: #3a6ea5;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.desktop-c {
+    overflow: hidden;
+}
+
+.desktop-t {
+    height: 44px;
+    position: absolute;
+    z-index: 10000;
+    overflow: hidden;
+}

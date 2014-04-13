@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM app_company c WHERE c.is_deleted='n'
+            #parse("AppCompany.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND c.id = :id
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+                ]]>
+    </sql>
+</sqls>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+       default-autowire="byName">
+    <!--User-->
+    <bean id="userStore" class="com.qinyin.athene.cache.store.impl.UserStoreImpl"/>
+    <bean id="userService" class="com.qinyin.athene.service.impl.UserServiceImpl"/>
+    <bean id="userProxy" class="com.qinyin.athene.proxy.impl.UserProxyImpl"/>
+    <bean id="userValidation" class="com.qinyin.athene.validation.impl.UserValidationImpl"/>
+    <bean id="userResource" class="com.qinyin.athene.resource.UserResource"/>
+    <bean id="loginAction" class="com.qinyin.athene.login.LoginAction"/>
+    <!--Resource-->
+    <bean id="resourceStore" class="com.qinyin.athene.cache.store.impl.ResourceStoreImpl"/>
+    <bean id="resourceService" class="com.qinyin.athene.service.impl.ResourceServiceImpl"/>
+    <bean id="resourceProxy" class="com.qinyin.athene.proxy.impl.ResourceProxyImpl"/>
+    <!--Company-->
+    <bean id="companyStore" class="com.qinyin.athene.cache.store.impl.CompanyStoreImpl"/>
+    <bean id="companyService" class="com.qinyin.athene.service.impl.CompanyServiceImpl"/>
+    <bean id="companyProxy" class="com.qinyin.athene.proxy.impl.CompanyProxyImpl"/>
+    <!--Url-->
+    <bean id="urlStore" class="com.qinyin.athene.cache.store.impl.UrlStoreImpl"/>
+    <bean id="urlService" class="com.qinyin.athene.service.impl.UrlServiceImpl"/>
+    <bean id="urlProxy" class="com.qinyin.athene.proxy.impl.UrlProxyImpl"/>
+    <!--Menu-->
+    <bean id="menuStore" class="com.qinyin.athene.cache.store.impl.MenuStoreImpl"/>
+    <bean id="menuService" class="com.qinyin.athene.service.impl.MenuServiceImpl"/>
+    <bean id="menuProxy" class="com.qinyin.athene.proxy.impl.MenuProxyImpl"/>
+    <!--Role-->
+    <bean id="roleStore" class="com.qinyin.athene.cache.store.impl.RoleStoreImpl"/>
+    <bean id="roleService" class="com.qinyin.athene.service.impl.RoleServiceImpl"/>
+    <bean id="roleProxy" class="com.qinyin.athene.proxy.impl.RoleProxyImpl"/>
+    <!--WallpaperLink-->
+    <bean id="wallpaperLinkStore" class="com.qinyin.athene.cache.store.impl.WallpaperLinkStoreImpl"/>
+    <bean id="wallpaperLinkService" class="com.qinyin.athene.service.impl.WallpaperLinkServiceImpl"/>
+    <bean id="wallpaperLinkProxy" class="com.qinyin.athene.proxy.impl.WallpaperLinkProxyImpl"/>
+
+    <bean id="roleBaseRoleService" class="com.qinyin.athene.service.impl.RoleBaseRoleServiceImpl"/>
+    <bean id="userRoleOrgService" class="com.qinyin.athene.service.impl.UserRoleOrgServiceImpl"/>
+    <bean id="urlRoleService" class="com.qinyin.athene.service.impl.UrlRoleServiceImpl"/>
+    <bean id="menuRoleService" class="com.qinyin.athene.service.impl.MenuRoleServiceImpl"/>
+</beans>

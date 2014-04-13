@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+            SELECT count(*)
+            FROM fin_income i WHERE i.is_deleted='n'
+            #parse("FinIncome.CONDITION")
+        ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+            SELECT *
+            FROM fin_income i
+            WHERE i.is_deleted='n'
+            #parse("FinIncome.CONDITION")
+            #parse("Common.ORDERING")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT *
+            FROM fin_income i
+            WHERE i.is_deleted='n'
+            #parse("FinIncome.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND i.id = :id
+            #end
+            #if($companyId)
+                AND i.company_id = :companyId
+            #end
+            #if($category)
+                AND i.category = :category
+            #end
+            #if($title)
+                AND i.title LIKE CONCAT('%',:title,'%')
+            #end
+            #if($timeStart)
+                AND i.income_date >= :timeStart
+            #end
+            #if($timeEnd)
+                AND i.income_date <= :timeEnd
+            #end
+            #if($incomeDate)
+                AND i.income_date = :incomeDate
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+        INSERT INTO fin_income (gmt_create, creator, gmt_modify, modifier, is_deleted, version, company_id,
+        category, title, description, income_date, amount)
+        VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :isDeleted, :version, :companyId, :category, :title,
+        :description, :incomeDate, :amount)
+        ]]>
+    </sql>
+    <sql id="UPDATE">
+        <![CDATA[
+            UPDATE fin_income SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            category = :category,
+            title = :title,
+            description = :description,
+            income_date = :incomeDate,
+            amount = :amount
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            UPDATE fin_income SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            is_deleted= 'y',
+            version = :version + 1
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="SELECT_FIRST">
+        <![CDATA[
+            SELECT * FROM fin_income
+            WHERE is_deleted = 'n'
+            AND company_id = :companyId
+            ORDER BY income_date ASC
+            LIMIT 1
+        ]]>
+    </sql>
+    <sql id="COMPUTE_AMOUNT_SUM_BY_DATE">
+        <![CDATA[
+            SELECT IFNULL(SUM(amount),0.0) AS amount_sum
+            FROM fin_income
+            WHERE is_deleted = 'n'
+            AND company_id = :companyId
+            AND income_date = :incomeDate
+        ]]>
+    </sql>
+    <sql id="COMPUTE_AMOUNT_SUM">
+        <![CDATA[
+            SELECT IFNULL(SUM(amount),0.0) AS amount_sum
+            FROM fin_income
+            WHERE is_deleted = 'n'
+            AND company_id = :companyId
+            AND income_date >= :incomeDateStart
+            AND income_date <= :incomeDateEnd
+            AND category = :category
+        ]]>
+    </sql>
+</sqls>

@@ -1,0 +1,135 @@
+.win-icon {
+    background: url("../../images/window/window-icon-16.png") no-repeat;
+}
+
+.taskbar-task-icon {
+    background: url("../../images/window/window-icon-32.png") no-repeat;
+}
+
+.dm-icon {
+    background: url("../../images/window/window-icon-48.png") no-repeat;
+}
+
+.win-icon-default {
+    background-position: -48px -32px;
+}
+
+.task-icon-default {
+    background-position: -96px -64px;
+}
+
+.dm-icon-default {
+    background-position: -144px -96px;
+}
+
+.icon-teacher-manager-16 {
+    background-position: -16px 0px;
+}
+
+.icon-teacher-manager-32 {
+    background-position: -32px 0px;
+}
+
+.icon-teacher-manager-48 {
+    background-position: -48px 0px;
+}
+
+.icon-student-manager-16 {
+    background-position: -48px 0px;
+}
+
+.icon-student-manager-32 {
+    background-position: -96px 0px;
+}
+
+.icon-student-manager-48 {
+    background-position: -144px 0px;
+}
+
+.icon-lesson-manager-16 {
+    background-position: 0px -16px;
+}
+
+.icon-lesson-manager-32 {
+    background-position: 0px -32px;
+}
+
+.icon-lesson-manager-48 {
+    background-position: 0px -48px;
+}
+
+.icon-expense-manager-16 {
+    background-position: -32px -16px;
+}
+
+.icon-expense-manager-32 {
+    background-position: -64px -32px;
+}
+
+.icon-expense-manager-48 {
+    background-position: -96px -48px;
+}
+
+.icon-income-manager-16 {
+    background-position: -48px -16px;
+}
+
+.icon-income-manager-32 {
+    background-position: -96px -32px;
+}
+
+.icon-income-manager-48 {
+    background-position: -144px -48px;
+}
+
+.icon-account-statistics-manager-16 {
+    background-position: -16px -16px;
+}
+
+.icon-account-statistics-manager-32 {
+    background-position: -32px -32px;
+}
+
+.icon-account-statistics-manager-48 {
+    background-position: -48px -48px;
+}
+
+.icon-task-manager-16 {
+    background-position: -16px -32px;
+}
+
+.icon-task-manager-32 {
+    background-position: -32px -64px;
+}
+
+.icon-task-manager-48 {
+    background-position: -48px -96px;
+}
+
+.icon-system-manager-16 {
+    background-position: -32px -48px;
+}
+
+.icon-system-manager-32 {
+    background-position: -64px -96px;
+}
+
+.icon-system-manager-48 {
+    background-position: -96px -144px;
+}
+
+.icon-user-own-manager-16 {
+    background-position: -32px -32px;
+}
+
+.icon-user-own-manager-32 {
+    background-position: -64px -64px;
+}
+
+.icon-user-own-manager-48 {
+    background-position: -96px -96px;
+}
+
+.icon-login-out-48 {
+    background-position: -0px -144px;
+}

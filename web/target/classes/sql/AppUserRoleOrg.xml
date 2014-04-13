@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM app_user_role_org uro WHERE uro.is_deleted='n'
+            #parse("AppUserRoleOrg.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($loginId)
+                AND uro.login_id = :loginId
+            #end
+            #if($roleName)
+                AND uro.role_name = :roleName
+            #end
+        ]]>
+    </sql>
+    <sql id="SELECT_LOGIN_ID">
+        <![CDATA[
+            SELECT login_id FROM app_user_role_org uro , app_user u WHERE
+            uro.login_id = u.login_id
+            AND u.company_id = :companyId
+            AND u.is_deleted ='n'
+            AND uro.is_deleted = 'n'
+        ]]>
+    </sql>
+    <sql id="SELECT_ACTIVE_BY_ROLE_AND_COMPANY">
+        <![CDATA[
+            SELECT uro.*
+            FROM app_user_role_org uro
+            JOIN app_user u ON (uro.login_id = u.login_id)
+            JOIN app_org o ON (uro.org_id = o.id)
+            WHERE uro.is_deleted = 'n'
+            AND u.is_deleted = 'n'
+            AND u.status = 'active'
+            AND o.is_deleted = 'n'
+            AND o.company_id = :companyId
+            #parse("AppUserRoleOrg.CONDITION")
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+                ]]>
+    </sql>
+</sqls>

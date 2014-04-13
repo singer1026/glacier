@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+       default-autowire="byName" default-lazy-init="false">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc-dev.properties</value>
+                <!--<value>classpath:jdbc.properties</value>-->
+            </list>
+        </property>
+    </bean>
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+    <!--<property name="driverClassName" value="${jdbc.driverClassName}"/>-->
+    <!--<property name="url" value="${jdbc.url}"/>-->
+    <!--<property name="username" value="${jdbc.username}"/>-->
+    <!--<property name="password" value="${jdbc.password}"/>-->
+    <!--</bean>-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="minPoolSize" value="10"/>
+        <property name="maxPoolSize" value="20"/>
+        <property name="maxIdleTime" value="1800"/>
+        <property name="acquireIncrement" value="2"/>
+        <property name="maxStatements" value="0"/>
+        <property name="initialPoolSize" value="2"/>
+        <property name="idleConnectionTestPeriod" value="1800"/>
+        <property name="acquireRetryAttempts" value="30"/>
+        <property name="breakAfterAcquireFailure" value="true"/>
+        <property name="testConnectionOnCheckout" value="false"/>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <tx:annotation-driven/>
+    <bean id="jdbcDao" class="com.qinyin.athene.dao.impl.JdbcDaoImpl"/>
+    <bean id="dynamicSqlManager" class="com.qinyin.athene.sql.DynamicSqlManagerImpl" init-method="init"/>
+    <bean id="velocityTemplateFactory" class="com.qinyin.athene.sql.velocity.VelocityTemplateFactory"/>
+    <bean id="pvg" class="com.qinyin.athene.manager.impl.PrivilegeImpl" init-method="init"/>
+    <bean id="expenseService" class="com.qinyin.finance.service.impl.ExpenseServiceImpl"/>
+    <bean id="incomeService" class="com.qinyin.finance.service.impl.IncomeServiceImpl"/>
+    <bean id="accountStatisticsService" class="com.qinyin.finance.service.impl.AccountStatisticsServiceImpl"/>
+    <bean id="accountStatisticsProxy" class="com.qinyin.finance.proxy.impl.AccountStatisticsProxyImpl" />
+</beans>

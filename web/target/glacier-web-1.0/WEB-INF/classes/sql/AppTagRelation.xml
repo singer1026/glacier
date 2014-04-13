@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM app_tag_relation tr WHERE 1=1
+            #parse("AppTagRelation.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+                ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO app_tag_relation (object_id, object_type, tag_id)
+            VALUES (:objectId, :objectType, :tagId)
+        ]]>
+    </sql>
+</sqls>

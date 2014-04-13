@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+            SELECT count(*)
+            FROM edu_teacher t
+            JOIN app_user u ON(t.login_id=u.login_id)
+            #if($subjectId)
+                JOIN edu_subject_relation sr ON(t.id=sr.object_id)
+            #end
+            WHERE t.is_deleted='n'
+            AND u.is_deleted='n'
+            #parse("EduTeacher.CONDITION")
+        ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+            SELECT t.*
+            FROM edu_teacher t JOIN app_user u ON(t.login_id=u.login_id)
+            #if($subjectId)
+                JOIN edu_subject_relation sr ON(t.id=sr.object_id)
+            #end
+            WHERE t.is_deleted='n'
+            AND u.is_deleted='n'
+            #parse("EduTeacher.CONDITION")
+            #parse("Common.ORDERING")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT t.* FROM edu_teacher t
+            WHERE t.is_deleted ='n'
+            #parse("EduTeacher.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND t.id = :id
+            #end
+            #if($companyId)
+                AND t.company_id = :companyId
+            #end
+            #if($name)
+                AND u.name LIKE CONCAT('%',:name,'%')
+            #end
+            #if($status)
+                AND t.status = :status
+            #end
+            #if($subjectId)
+                AND sr.object_type = 't'
+                AND sr.subject_id = :subjectId
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO edu_teacher (gmt_create, creator, gmt_modify, modifier, is_deleted, version,
+            status, login_id, company_id, education, graduate_school, level, major, experience, description)
+            VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :isDeleted, :version, :status,
+            :loginId, :companyId, :education, :graduateSchool, :level, :major, :experience, :description)
+        ]]>
+    </sql>
+    <sql id="UPDATE">
+        <![CDATA[
+            UPDATE edu_teacher SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            education = :education,
+            graduate_school = :graduateSchool,
+            level = :level,
+            major = :major,
+            experience = :experience,
+            description = :description
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="UPDATE_STATUS">
+        <![CDATA[
+            UPDATE edu_teacher SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            status = :status
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            UPDATE edu_teacher SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            is_deleted= 'y',
+            version = :version + 1
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+</sqls>

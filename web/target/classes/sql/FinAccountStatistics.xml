@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+            SELECT count(*)
+            FROM fin_account_statistics ass
+            WHERE TRUE
+            #parse("FinAccountStatistics.CONDITION")
+        ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+            SELECT * FROM fin_account_statistics ass
+            WHERE TRUE
+            #parse("FinAccountStatistics.CONDITION")
+            #parse("Common.ORDERING")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM fin_account_statistics ass
+            WHERE TRUE
+            #parse("FinAccountStatistics.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($companyId)
+                AND ass.company_id = :companyId
+            #end
+            #if($timeStart)
+                AND ass.statistics_date >= :timeStart
+            #end
+            #if($timeEnd)
+                AND ass.statistics_date <= :timeEnd
+            #end
+            #if($statisticsDate)
+                AND ass.statistics_date = :statisticsDate
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO fin_account_statistics (gmt_create, company_id,
+            statistics_date, income_total, expense_total, day_profit, balance)
+            VALUES (:gmtCreate, :companyId, :statisticsDate,
+            :incomeTotal, :expenseTotal, :dayProfit, :balance)
+        ]]>
+    </sql>
+    <sql id="DELETE_BY_COMPANY_ID">
+        <![CDATA[
+            DELETE FROM fin_account_statistics
+            WHERE company_id = :companyId
+        ]]>
+    </sql>
+    <sql id="SELECT_LAST">
+        <![CDATA[
+            SELECT * FROM fin_account_statistics
+            WHERE company_id = :companyId
+            ORDER BY statistics_date DESC
+            LIMIT 1
+        ]]>
+    </sql>
+</sqls>

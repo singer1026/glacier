@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM app_menu m WHERE m.is_deleted='n'
+            #parse("AppMenu.CONDITION")
+            ORDER BY m.ordering
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($type)
+                AND m.type = :type
+            #end
+            #if($name)
+                AND m.name = :name
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+                ]]>
+    </sql>
+</sqls>

@@ -1,0 +1,70 @@
+.listfield-default .listfield-wrap {
+    font-weight: bold;
+    color: #696969;
+    padding: 2px;
+    line-height: 18px;
+}
+
+.listfield-default .listfield-item {
+    float: left;
+    padding: 0 2px;
+    line-height: 18px;
+}
+
+.listfield-default .listfield-item-icon-wrap {
+    float: left;
+    padding: 1px 0px;
+}
+
+.listfield-default .listfield-item-icon {
+    background-image: url(../../images/button/button_icon.png);
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+.listfield-default .listfield-item-content {
+    float: left;
+}
+
+.checkgroup-default {
+    padding: 2px;
+}
+
+.checkgroup-default .checkgroup-wrap {
+    line-height: 19px;
+}
+
+.checkgroup-default .checkgroup-item {
+    padding: 0px 2px;
+    height: 19px;
+    line-height: 19px;
+    float: left;
+}
+
+.checkgroup-default .checkgroup-item-icon-wrap {
+    float: left;
+    padding: 3px 0px;
+}
+
+.checkgroup-default .checkgroup-item-icon {
+    background: url(../../images/form/checkbox.gif) no-repeat;
+    background-position: 0px 0px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 13px;
+    height: 13px;
+}
+
+.checkgroup-default .checkgroup-item-icon-checked {
+    background-position: 0px -13px;
+}
+
+.checkgroup-default .checkgroup-item-content {
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    padding-left: 3px;
+}
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT lt.*
+            FROM edu_lesson_teacher lt
+            JOIN edu_lesson l ON (lt.lesson_id=l.id)
+            WHERE l.is_deleted = 'n'
+            #parse("EduLessonTeacher.CONDITION")
+            #parse("Common.ORDERING")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($lessonId)
+                AND lt.lesson_id = :lessonId
+            #end
+            #if($teacherId)
+                AND lt.teacher_id = :teacherId
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO edu_lesson_teacher (lesson_id, teacher_id, teacher_name)
+            VALUES (:lessonId, :teacherId, :teacherName)
+        ]]>
+    </sql>
+    <sql id="DELETE_BY_LESSON_ID">
+        <![CDATA[
+            DELETE FROM edu_lesson_teacher
+            WHERE lesson_id = :lessonId
+        ]]>
+    </sql>
+    <sql id="UPDATE_TEACHER_NAME">
+        <![CDATA[
+            UPDATE edu_lesson_teacher
+            SET teacher_name = :teacherName
+            WHERE teacher_id = :teacherId
+        ]]>
+    </sql>
+</sqls>

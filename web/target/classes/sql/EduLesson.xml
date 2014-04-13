@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+            SELECT count(*) FROM edu_lesson l JOIN edu_subject s ON(l.subject_id =s.id)
+            #if($studentName || $studentId)
+                JOIN edu_lesson_student ls ON(l.id=ls.lesson_id)
+            #end
+            #if($teacherName || $teacherId)
+                JOIN edu_lesson_teacher lt ON(l.id=lt.lesson_id)
+            #end
+            #if($dayOfWeek)
+                JOIN edu_lesson_plan lp ON(l.id=lp.lesson_id)
+            #end
+            WHERE l.is_deleted ='n' and s.is_deleted ='n'
+            #parse("EduLesson.CONDITION")
+        ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+            SELECT l.*
+            FROM edu_lesson l JOIN edu_subject s ON (l.subject_id=s.id)
+            #if($studentName || $studentId)
+                JOIN edu_lesson_student ls ON(l.id=ls.lesson_id)
+            #end
+            #if($teacherName || $teacherId)
+                JOIN edu_lesson_teacher lt ON(l.id=lt.lesson_id)
+            #end
+            #if($dayOfWeek)
+                JOIN edu_lesson_plan lp ON(l.id=lp.lesson_id)
+            #end
+            WHERE l.is_deleted ='n' AND s.is_deleted ='n'
+            #parse("EduLesson.CONDITION")
+            #parse("Common.ORDERING")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="SELECT_COUNT">
+        <![CDATA[
+            SELECT count(*) FROM edu_lesson l
+            WHERE l.is_deleted ='n'
+            #parse("EduLesson.CONDITION")
+        ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT l.* FROM edu_lesson l
+            WHERE l.is_deleted ='n'
+            #parse("EduLesson.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND l.id = :id
+            #end
+            #if($companyId)
+                AND l.company_id = :companyId
+            #end
+            #if($studentId)
+                AND ls.student_id = :studentId
+            #end
+            #if($studentName)
+                AND ls.student_name LIKE CONCAT('%',:studentName,'%')
+            #end
+            #if($teacherId)
+                AND lt.teacher_id = :teacherId
+            #end
+            #if($teacherName)
+                AND lt.teacher_name LIKE CONCAT('%',:teacherName,'%')
+            #end
+            #if($subjectId)
+                AND l.subject_id = :subjectId
+            #elseif($subjectTagId)
+                AND l.subject_id IN (
+                SELECT tr.object_id FROM app_tag t,app_tag_relation tr WHERE t.id=tr.tag_id
+                AND object_type = 'subject'
+                AND t.id= :subjectTagId
+                )
+            #end
+            #if($dayOfWeek)
+                AND lp.day_of_week = :dayOfWeek
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        INSERT INTO edu_lesson (gmt_create, creator, gmt_modify, modifier, is_deleted, version,
+        company_id, subject_id, remark)
+        VALUES (:gmtCreate, :creator, :gmtModify, :modifier,:isDeleted, :version, :companyId, :subjectId, :remark)
+    </sql>
+    <sql id="UPDATE">
+        <![CDATA[
+            UPDATE edu_lesson SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            subject_id = :subjectId,
+            remark = :remark
+            WHERE id=:id AND version = :version
+        ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            DELETE FROM edu_lesson
+            WHERE id=:id AND version = :version
+        ]]>
+    </sql>
+    <sql id="SELECT_DAY_STATISTICS">
+        <![CDATA[
+            SELECT lt.teacher_name, subject_id,MIN(lp.start_time) AS start_time, MAX(lp.end_time) AS end_time,
+            COUNT(*) AS COUNT FROM edu_lesson_plan lp JOIN edu_lesson l ON(lp.lesson_id=l.id)
+            JOIN edu_lesson_teacher lt ON(l.id=lt.lesson_id)
+            WHERE l.company_id = :companyId AND lp.day_of_week = :dayOfWeek
+            GROUP BY lt.teacher_id,l.subject_id ORDER BY start_time ASC
+        ]]>
+    </sql>
+</sqls>

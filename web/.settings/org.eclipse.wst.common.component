@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="glacier-web">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="glacier-athene-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/glacier-athene/glacier-athene">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="glacier-education-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/glacier-education/glacier-education">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="glacier-finance-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/glacier-finance/glacier-finance">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="glacier-system-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/glacier-system/glacier-system">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="glacier-customer-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/glacier-customer/glacier-customer">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="glacier-web"/>
+        <property name="java-output-path" value="/glacier-web/target/classes"/>
+    </wb-module>
+</project-modules>

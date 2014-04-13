@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+            SELECT count(*)
+            FROM edu_student s
+            JOIN app_user u ON(s.login_id=u.login_id)
+            #if($subjectId)
+                JOIN edu_subject_relation sr ON(s.id=sr.object_id)
+            #end
+            WHERE s.is_deleted='n'
+            AND u.is_deleted='n'
+            #parse("EduStudent.CONDITION")
+        ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+            SELECT s.*
+            FROM edu_student s
+            JOIN app_user u ON(s.login_id=u.login_id)
+            #if($subjectId)
+                JOIN edu_subject_relation sr ON(s.id=sr.object_id)
+            #end
+            WHERE s.is_deleted='n'
+            AND u.is_deleted='n'
+            #parse("EduStudent.CONDITION")
+            #parse("Common.ORDERING")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT s.* FROM edu_student s
+            WHERE s.is_deleted ='n'
+            #parse("EduStudent.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND s.id = :id
+            #end
+            #if($companyId)
+                AND s.company_id = :companyId
+            #end
+            #if($name)
+                AND u.name LIKE CONCAT('%',:name,'%')
+            #end
+            #if($subjectId)
+                AND sr.object_type = 's'
+                AND sr.subject_id = :subjectId
+            #end
+            #if($hasLesson)
+                #if($hasLesson=="y")
+                    AND s.status = 'in'
+                    AND s.id IN(SELECT ls.student_id FROM edu_lesson l JOIN edu_lesson_student ls ON(l.id=ls.lesson_id)
+                    WHERE l.is_deleted="n"
+                    #if($companyId)
+                        AND l.company_id = :companyId
+                    #end
+                    )
+                #end
+                #if($hasLesson=="n")
+                    AND s.status = 'in'
+                    AND s.id NOT IN(SELECT ls.student_id FROM edu_lesson l JOIN edu_lesson_student ls ON(l.id=ls.lesson_id)
+                    WHERE l.is_deleted="n"
+                    #if($companyId)
+                        AND l.company_id = :companyId
+                    #end
+                    )
+                #end
+            #else
+                #if($status)
+                    AND s.status = :status
+                #end
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO edu_student (gmt_create, creator, gmt_modify, modifier, is_deleted,
+            version, status, gmt_enter, gmt_quit, login_id, company_id, school, description)
+            VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :isDeleted, :version,
+            :status, :gmtEnter, :gmtQuit, :loginId, :companyId, :school, :description)
+        ]]>
+    </sql>
+    <sql id="UPDATE">
+        <![CDATA[
+            UPDATE edu_student SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            gmt_enter = :gmtEnter,
+            school = :school,
+            description = :description
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="UPDATE_STATUS">
+        <![CDATA[
+            UPDATE edu_student SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            gmt_quit = :gmtQuit,
+            gmt_enter = :gmtEnter,
+            status = :status
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            UPDATE edu_student SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            is_deleted= 'y',
+            version = :version + 1
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+</sqls>

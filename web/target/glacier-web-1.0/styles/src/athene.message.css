@@ -1,0 +1,64 @@
+.message-panel {
+    position: absolute;
+    border: solid #8DB2E3 1px;
+    color: #15428B;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: normal;
+    background-color: #DEEBF7;
+    display: none;
+}
+
+.message-panel .message-panel-message {
+    padding: 5px;
+    overflow: auto;
+}
+
+.message-panel .message-panel-icon-wrap {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    padding: 2px;
+    float: left;
+}
+
+.message-panel .message-panel-title-font {
+    float: left;
+    padding: 0px 0px 0px 2px;
+    line-height: 20px;
+    height: 20px;
+}
+
+.message-panel .message-panel-close {
+    background: url("../../images/message/tool-sprites.gif") no-repeat;
+    display: -moz-inline-box;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-position: 0px 0px;
+    margin-top: 2px;
+    float: right;
+}
+
+.message-panel .message-panel-close-hover {
+    background-position: -15px 0px;
+}
+
+.message-panel .message-panel-title {
+    color: #15428B;
+    background: #D0DEF0 url(../../images/message/bg.gif) repeat-x scroll left top;
+    border-color: #A9BFD3;
+    border-style: solid;
+    border-width: 0 0 1px;
+    display: block;
+    padding: 2px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.message-panel .message-panel-message-box {
+    width: 100%;
+    font-weight: normal;
+}

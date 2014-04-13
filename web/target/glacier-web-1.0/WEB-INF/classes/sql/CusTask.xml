@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+            SELECT count(*)
+            FROM cus_task t
+            WHERE t.is_deleted='n'
+            #parse("CusTask.CONDITION")
+        ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+            SELECT * FROM cus_task t
+            WHERE t.is_deleted='n'
+            #parse("CusTask.CONDITION")
+            #parse("Common.ORDERING")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM cus_task t
+            WHERE t.is_deleted='n'
+            #parse("CusTask.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND t.id = :id
+            #end
+            #if($companyId)
+                AND t.company_id = :companyId
+            #end
+            #if($status)
+                AND t.status = :status
+            #end
+            #if($timeStart)
+                AND t.notify_date >= :timeStart
+            #end
+            #if($timeEnd)
+                AND t.notify_date <= :timeEnd
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO cus_task (gmt_create, creator, gmt_modify, modifier, version, is_deleted,
+            company_id, status, notify_date, title, description, disposer, dispose_time, dispose_opinion)
+            VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :version, :isDeleted, :companyId, :status,
+            :notifyDate, :title, :description, :disposer, :disposeTime, :disposeOpinion)
+        ]]>
+    </sql>
+    <sql id="UPDATE">
+        <![CDATA[
+            UPDATE cus_task SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            title = :title,
+            description = :description,
+            notify_date = :notifyDate
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            UPDATE cus_task SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            is_deleted= 'y',
+            version = :version + 1
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="APPROVE">
+        <![CDATA[
+            UPDATE cus_task SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            status = :status,
+            disposer = :disposer,
+            dispose_time = :disposeTime,
+            dispose_opinion = :disposeOpinion
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+</sqls>

@@ -1,0 +1,112 @@
+.fm-div {
+    margin: 0 auto;
+    padding: 5px 0px;
+}
+
+.fm-item {
+    padding: 0px 5px 8px 100px;
+    margin: 0px;
+    line-height: 16px;
+}
+
+.fm-label {
+    padding-top: 4px;
+    margin-left: -100px;
+    width: 96px;
+    float: left;
+    text-align: right;
+    line-height: 16px;
+    height: 16px;
+}
+
+.fm-combo-box {
+    width: 170px;
+}
+
+.fm-text-field {
+    width: 163px;
+}
+
+.fm-readonly {
+    display: inline-block;
+    padding-top: 4px;
+    font-size: 13px;
+    padding-left: 2px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.fm-label .required {
+    color: #FF0000;
+    font-family: SimSun;
+}
+
+.fm-explain {
+    color: #C0880F;
+    background-color: #FFFCE9;
+    border: 1px solid #EDDDAB;
+    margin-top: 8px;
+    padding: 3px 4px;
+    width: 160px;
+    clear: both;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.fm-error {
+    display: none;
+    color: #FF5243;
+    line-height: 16px;
+    padding: 5px 2px 5px 0px;
+}
+
+.fm-error-content {
+    padding-left: 2px;
+    line-height: 16px;
+}
+
+/*-----------------------------------定义search-form的default class-----------------------------------*/
+.sm-item {
+    padding: 0px 5px 5px 70px;
+}
+
+.sm-label {
+    padding-top: 4px;
+    margin-left: -70px;
+    width: 66px;
+}
+
+.sm-text-field {
+    width: 100px;
+}
+
+.sm-combo-box {
+    width: 105px;
+}
+
+.search-button {
+    padding: 7px 3px;
+    border-top: 1px solid #a6c3eb;
+    border-bottom: 1px solid #a6c3eb;
+}
+
+.search-frame {
+    padding-top: 5px;
+    background-color: white;
+}
+
+.win-inner {
+    width: 100%;
+    background-color: #ebf2fa;
+}
+
+.form-label {
+    color: #334f67;
+}
+
+.form-confirm-label {
+    color: #ff4d09;
+    margin-bottom: 2px;
+    font-size: 13px;
+    font-weight: bold;
+}

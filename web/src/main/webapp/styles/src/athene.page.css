@@ -1,0 +1,298 @@
+#dm-all {
+    width: 100%;
+    height: 100%;
+}
+
+#toolbar {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    height: 28px;
+    width: 100%;
+    z-index: 9;
+    background: url(../../images/window/window_toolbar.png);
+}
+
+#scroll-left {
+    display: none;
+    float: left;
+    padding-top: 4px;
+    width: 22px;
+    height: 100%
+}
+
+#scroll-right {
+    display: none;
+    float: left;
+    padding-top: 4px;
+    width: 22px;
+    height: 100%
+}
+
+#task-scroll-left {
+    width: 22px;
+    height: 22px;
+    overflow: hidden
+}
+
+#task-scroll-left img {
+    width: 200px;
+    height: 100px;
+    background: url(../../images/window/scrool.bmp) no-repeat
+}
+
+#task-scroll-right {
+    width: 22px;
+    height: 22px;
+    overflow: hidden
+}
+
+#task-scroll-right img {
+    width: 200px;
+    height: 100px;
+    background: url(../../images/window/scrool.bmp) -22px 0px no-repeat
+}
+
+#taskbar {
+    float: left;
+    height: 100%;
+    overflow: hidden;
+}
+
+#task-list {
+    float: left;
+    padding-top: 4px;
+    height: 24px
+}
+
+#startbar {
+    float: left;
+    padding: 4px 2px 2px 2px;
+    height: 24px;
+    width: 47px
+}
+
+#startbar-button {
+    height: 22px;
+    width: 47px;
+    overflow: hidden
+}
+
+#startbar-button img {
+    height: 200px;
+    width: 100px;
+    background: url(../../images/window/window_button.bmp) no-repeat
+}
+
+#all-min {
+    float: left;
+    height: 100%;
+    width: 23px;
+    padding-top: 4px
+}
+
+#all-min-button {
+    height: 22px;
+    width: 23px;
+    overflow: hidden
+}
+
+#all-min-button img {
+    height: 200px;
+    width: 100px;
+    background: url(../../images/window/window_button.bmp) -95px 0px no-repeat
+}
+
+.log-console-div {
+    background-color: #e6e6fa;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.log-button-div {
+    background-color: #e6e6fa;
+}
+
+.log-content {
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 11px;
+    word-wrap: break-word;
+    background-color: #e6e6fa;
+}
+
+.table-view-default {
+    border: 1px solid RGB(194, 194, 194);
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.table-view-default TH {
+    border: 1px solid RGB(194, 194, 194);
+}
+
+.table-view-default TR {
+    height: 24px;
+    line-height: 24px;
+}
+
+.table-view-default TD {
+    border: 1px solid RGB(194, 194, 194);
+    padding-left: 3px;
+}
+
+.table-statistics {
+    border: 1px solid RGB(194, 194, 194);
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.table-statistics TH {
+    border: 1px solid RGB(194, 194, 194);
+}
+
+.table-statistics TR {
+    line-height: 18px;
+}
+
+.table-statistics TD {
+    border: 1px solid RGB(194, 194, 194);
+}
+
+.schedule-td {
+    vertical-align: top;
+    padding-left: 0px !important;
+    background-color: #f1fbfc;
+}
+
+.schedule-inner-table {
+    width: 100%;
+    border-width: 0px;
+    border-collapse: collapse;
+}
+
+.schedule-inner-table TD {
+    border-width: 0px;
+    padding: 0px;
+}
+
+.schedule-inner-table DIV {
+    line-height: 18px;
+}
+
+.schedule-odd {
+    padding: 2px;
+    background-color: #bad7e7;
+}
+
+.schedule-even {
+    padding: 2px;
+    background-color: #d5f1f4;
+}
+
+.schedule-time {
+    text-align: center;
+    padding: 0px;
+}
+
+.schedule-head {
+    background: #328aa4 url(../../images/grid/tr_back.gif) repeat-x;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 145px;
+}
+
+.select-board {
+    font-weight: bold;
+    color: #696969;
+    margin-bottom: 2px;
+}
+
+.select-board-content {
+    float: left;
+    padding: 0 3px;
+    width: 40px;
+}
+
+.strip-default {
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    display: -moz-inline-box;
+    display: inline-block;
+    border: 1px solid #626562;
+}
+
+.strip-green {
+    background: url(../../images/strip/strip_green.png) repeat-x;
+}
+
+.strip-orange {
+    background: url(../../images/strip/strip_orange.png) repeat-x;
+}
+
+.account-statistics-view {
+    padding: 7px 7px 7px 12px;
+    background-color: white;
+    border-bottom: 1px solid #a6c3eb;
+}
+
+.divide-frame {
+    background: url(../../images/form/divide_frame.png) repeat-x;
+}
+
+.system-menu {
+    padding-left: 2px;
+    width: 150px;
+    line-height: 16px;
+    display: -moz-inline-box;
+    display: inline-block;
+}
+
+.system-menu .system-menu-content {
+    font-size: 13px;
+    color: #006e6d;
+    line-height: 16px;
+    height: 16px;
+    text-decoration: underline;
+    padding-left: 4px;
+    float: left;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.task-float {
+    line-height: 18px;
+    height: 18px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.task-float A {
+    font-size: 12px;
+    font-weight: normal;
+    text-decoration: underline;
+    color: blue;
+    line-height: 18px;
+    height: 18px;
+    display: -moz-inline-box;
+    display: inline-block;
+}
+
+.task-float .task-float-unread {
+    color: red;
+}
+
+.task-float .task-float-number {
+    text-align: right;
+    line-height: 18px;
+    height: 18px;
+    width: 20px;
+    display: -moz-inline-box;
+    display: inline-block;
+}
+
+
+

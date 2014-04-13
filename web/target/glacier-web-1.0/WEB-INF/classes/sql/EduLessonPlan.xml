@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT lp.*
+            FROM edu_lesson_plan lp
+            JOIN edu_lesson l ON (lp.lesson_id=l.id)
+            WHERE l.is_deleted = 'n'
+            #parse("EduLessonPlan.CONDITION")
+            #parse("Common.ORDERING")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($lessonId)
+                AND lp.lesson_id = :lessonId
+            #end
+            #if($dayOfWeek)
+                AND lp.day_of_week = :dayOfWeek
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO edu_lesson_plan (lesson_id, day_of_week, start_time, end_time, time_length, frequency, classroom_id)
+            VALUES (:lessonId, :dayOfWeek, :startTime, :endTime, :timeLength, :frequency, :classroomId)
+        ]]>
+    </sql>
+    <sql id="DELETE_BY_LESSON_ID">
+        <![CDATA[
+            DELETE FROM edu_lesson_plan
+            WHERE lesson_id = :lessonId
+        ]]>
+    </sql>
+    <sql id="SELECT_BY_TEACHER_ID">
+        <![CDATA[
+            SELECT lp.*
+            FROM edu_lesson_teacher lt
+            JOIN edu_lesson l ON (lt.lesson_id=l.id)
+            JOIN edu_lesson_plan lp ON (l.id=lp.lesson_id)
+            WHERE l.is_deleted = 'n'
+            AND lt.teacher_id = :teacherId
+            ORDER by lp.day_of_week,lp.start_time
+        ]]>
+    </sql>
+</sqls>

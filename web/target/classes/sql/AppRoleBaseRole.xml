@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT rbr.*
+            FROM app_role_base_role rbr
+            WHERE rbr.is_deleted='n'
+            #parse("AppRoleBaseRole.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($baseRoleName)
+            AND rbr.base_role_name= :baseRoleName
+            #end
+            #if($roleName)
+            AND rbr.role_name= :roleName
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+                ]]>
+    </sql>
+</sqls>

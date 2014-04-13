@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM app_url u WHERE u.is_deleted='n'
+            #parse("AppUrl.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($name)
+                AND name = :name
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO app_url (gmt_create, creator, gmt_modify, modifier, is_deleted, version, is_anonymous, name,
+            type, description)
+            VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :isDeleted, :version,:isAnonymous,
+            :name, :type, :description)
+        ]]>
+    </sql>
+</sqls>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM app_tag t WHERE t.is_deleted='n'
+            #parse("AppTag.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($companyId)
+                AND t.company_id = :companyId
+            #end
+            AND t.type=:type
+            AND t.category=:category
+            ORDER BY t.ordering ASC
+        ]]>
+    </sql>
+</sqls>

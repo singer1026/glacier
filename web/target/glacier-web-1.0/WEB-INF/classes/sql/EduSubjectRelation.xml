@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM edu_subject_relation sr WHERE 1=1
+            #parse("EduSubjectRelation.CONDITION")
+        ]]>
+    </sql>
+    <sql id="SELECT_COUNT">
+        <![CDATA[
+            SELECT count(*) FROM edu_subject_relation sr WHERE 1=1
+            #parse("EduSubjectRelation.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($objectId)
+                AND sr.object_id = :objectId
+            #end
+            #if($objectType)
+                AND sr.object_type = :objectType
+            #end
+            #if($subjectId)
+                AND sr.subject_id = :subjectId
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO edu_subject_relation (object_id, object_type, subject_id)
+            VALUES (:objectId, :objectType, :subjectId)
+        ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            DELETE FROM edu_subject_relation WHERE
+            object_id = :objectId
+            AND object_type = :objectType
+            #if($subjectId)
+                AND subject_id = :subjectId
+            #end
+
+        ]]>
+    </sql>
+</sqls>

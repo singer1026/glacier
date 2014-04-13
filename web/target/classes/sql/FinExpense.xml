@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+            SELECT count(*)
+            FROM fin_expense e WHERE e.is_deleted='n'
+            #parse("FinExpense.CONDITION")
+        ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+            SELECT *
+            FROM fin_expense e
+            WHERE e.is_deleted='n'
+            #parse("FinExpense.CONDITION")
+            #parse("Common.ORDERING")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT *
+            FROM fin_expense e
+            WHERE e.is_deleted='n'
+            #parse("FinExpense.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND e.id = :id
+            #end
+            #if($companyId)
+                AND e.company_id = :companyId
+            #end
+            #if($category)
+                AND e.category = :category
+            #end
+            #if($title)
+                AND e.title LIKE CONCAT('%',:title,'%')
+            #end
+            #if($timeStart)
+                AND e.expend_date >= :timeStart
+            #end
+            #if($timeEnd)
+                AND e.expend_date <= :timeEnd
+            #end
+            #if($expendDate)
+                AND e.expend_date = :expendDate
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+        INSERT INTO fin_expense (gmt_create, creator, gmt_modify, modifier, is_deleted, version, company_id,
+        category, title, description, expend_date, amount)
+        VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :isDeleted, :version, :companyId, :category, :title,
+        :description, :expendDate, :amount)
+        ]]>
+    </sql>
+    <sql id="UPDATE">
+        <![CDATA[
+            UPDATE fin_expense SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            category = :category,
+            title = :title,
+            description = :description,
+            expend_date = :expendDate,
+            amount = :amount
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            UPDATE fin_expense SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            is_deleted= 'y',
+            version = :version + 1
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="SELECT_FIRST">
+        <![CDATA[
+            SELECT * FROM fin_expense
+            WHERE is_deleted = 'n'
+            AND company_id = :companyId
+            ORDER BY expend_date ASC
+            LIMIT 1
+        ]]>
+    </sql>
+    <sql id="COMPUTE_AMOUNT_SUM_BY_DATE">
+        <![CDATA[
+            SELECT IFNULL(SUM(amount),0.0) AS amount_sum
+            FROM fin_expense
+            WHERE is_deleted = 'n'
+            AND company_id = :companyId
+            AND expend_date = :expendDate
+        ]]>
+    </sql>
+    <sql id="COMPUTE_AMOUNT_SUM">
+        <![CDATA[
+            SELECT IFNULL(SUM(amount),0.0) AS amount_sum
+            FROM fin_expense
+            WHERE is_deleted = 'n'
+            AND company_id = :companyId
+            AND expend_date >= :expendDateStart
+            AND expend_date <= :expendDateEnd
+            AND category = :category
+        ]]>
+    </sql>
+</sqls>

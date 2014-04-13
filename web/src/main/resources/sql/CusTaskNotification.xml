@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY">
+        <![CDATA[
+            SELECT * FROM cus_task_notification tn
+            WHERE TRUE
+            #parse("CusTaskNotification.CONDITION")
+            #parse("Common.ORDERING")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($loginId)
+                AND tn.login_id = :loginId
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO cus_task_notification (status, task_id, login_id)
+            VALUES (:status, :taskId, :loginId)
+        ]]>
+    </sql>
+    <sql id="UPDATE">
+        <![CDATA[
+                ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            DELETE FROM cus_task_notification
+            WHERE task_id = :taskId
+        ]]>
+    </sql>
+    <sql id="SELECT_BY_NOTIFY_DATE">
+        <![CDATA[
+            SELECT t.*,
+            tn.id AS taskNotificationId,
+            tn.status AS taskNotificationStatus
+            FROM cus_task_notification tn
+            JOIN cus_task t ON (tn.task_id=t.id)
+            WHERE t.is_deleted = 'n'
+            AND t.notify_date <= :notifyDate
+            AND tn.login_id = :loginId
+            #parse("Common.ORDERING")
+        ]]>
+    </sql>
+    <sql id="UPDATE_STATUS">
+        <![CDATA[
+            UPDATE cus_task_notification SET
+            status = :status
+            WHERE task_id = :taskId
+            AND login_id = :loginId
+        ]]>
+    </sql>
+</sqls>

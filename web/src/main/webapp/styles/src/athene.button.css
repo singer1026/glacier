@@ -1,0 +1,154 @@
+.btn-default {
+    margin-left: 5px;
+    padding: 0;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    height: 24px;
+    height: 24px;
+    background-position: 100% -24px;
+    background-repeat: no-repeat;
+    -moz-user-select: none;
+    cursor: pointer
+}
+
+.btn-default .btn-inner {
+    margin-right: 3px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    line-height: 16px;
+    height: 16px;
+    padding: 4px 6px 4px 7px;
+}
+
+.btn-default .btn-inner table {
+    line-height: 16px;
+    height: 16px;
+    width: auto;
+    border-collapse: collapse;
+}
+
+.btn-default-hover {
+    background-position: 100% -72px;
+}
+
+.btn-default-hover .btn-inner {
+    background-position: 0px -48px;
+}
+
+.btn-default-active {
+    background-position: 100% -120px;
+}
+
+.btn-default-active .btn-inner {
+    background-position: 0px -96px;
+}
+
+.btn-gray, .btn-gray .btn-inner {
+    background-image: url(../../images/button/button_gray.png);
+}
+
+.btn-blue, .btn-blue .btn-inner {
+    background-image: url(../../images/button/button_blue.png);
+}
+
+.btn-yellow, .btn-yellow .btn-inner {
+    background-image: url(../../images/button/button_yellow.png);
+}
+
+.btn-icon {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background-image: url(../../images/button/button_icon.png);
+}
+
+.icon-search {
+    background-position: -16px 0px;
+}
+
+.icon-add {
+    background-position: -48px -16px;
+}
+
+.icon-save {
+    background-position: 0px -48px;
+}
+
+.icon-delete {
+    background-position: -16px -16px;
+}
+
+.icon-remove {
+    background-position: -48px -64px;
+}
+
+.icon-close {
+    background-position: -32px -16px;
+}
+
+.icon-leave {
+    background-position: -32px 0px;
+}
+
+.icon-refresh {
+    background-position: -48px -48px;
+}
+
+.icon-excel {
+    background-position: -48px 0px;
+}
+
+.icon-confirm {
+    background-position: 0px -32px;
+}
+
+.icon-cancel {
+    background-position: -32px -32px;
+}
+
+.icon-login {
+    background-position: -16px -48px;
+}
+
+.icon-reset {
+    background-position: -48px -32px;
+}
+
+.icon-edit {
+    background-position: 0px -16px;
+}
+
+.icon-finish {
+    background-position: 0px -64px;
+}
+
+.icon-clear {
+    background-position: -16px -64px;
+}
+
+.icon-select {
+    background-position: -32px -64px;
+}
+
+.icon-statistics {
+    background-position: -16px -32px;
+}
+
+.icon-view {
+    background-position: -32px -48px;
+}
+
+.icon-post {
+    background-position: 0px -80px;
+}
+
+.icon-error {
+    background-position: -16px -80px;
+}
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <!--<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+                <expression>logger.startsWith("com.qinyin.athene.dao")
+                    ||logger.startsWith("com.qinyin.athene.cache")
+                </expression>
+            </evaluator>
+            <OnMismatch>NEUTRAL</OnMismatch>
+            <OnMatch>DENY</OnMatch>
+        </filter>
+        -->
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+                <expression>message.contains("AppUrl-")
+                    ||message.contains("AppRole-")
+                    ||message.contains("AppMenu-")
+                </expression>
+            </evaluator>
+            <OnMismatch>NEUTRAL</OnMismatch>
+            <OnMatch>DENY</OnMatch>
+        </filter>
+        <encoder charset="UTF-8">
+            <pattern>%d [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+                <expression>logger.startsWith("com.qinyin.athene.dao")
+                    ||logger.startsWith("com.qinyin.athene.cache")
+                </expression>
+            </evaluator>
+            <OnMismatch>NEUTRAL</OnMismatch>
+            <OnMatch>DENY</OnMatch>
+        </filter>
+        -->
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+                <expression>message.contains("AppUrl-")
+                    ||message.contains("AppRole-")
+                    ||message.contains("AppMenu-")
+                </expression>
+            </evaluator>
+            <OnMismatch>NEUTRAL</OnMismatch>
+            <OnMatch>DENY</OnMatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>D:\log\glacier-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>%d %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--&lt;!&ndash; 下面这段注释的代码可以在日志文件超过 5MB 时进行归档，并且归档文件后缀只要是 .zip 或 .gz 就会自动压缩日志归档 &ndash;&gt;-->
+    <!--<file>d:/log/Unmi.log</file>-->
+    <!--<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">-->
+    <!--<fileNamePattern>d:/log/Unmi.%i.log.zip</fileNamePattern>-->
+    <!--<minIndex>1</minIndex>-->
+    <!--<maxIndex>10</maxIndex>-->
+    <!--</rollingPolicy>-->
+    <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+    <!--<maxFileSize>5MB</maxFileSize>-->
+    <!--</triggeringPolicy>-->
+    <!--<encoder>-->
+    <!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>-->
+    <!--</encoder>-->
+    <!--</appender>-->
+    <root level="DEBUG">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="rollingFile"/>
+    </root>
+</configuration>

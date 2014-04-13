@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM app_wallpaper_link wl WHERE TRUE
+            #parse("AppWallpaperLink.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($filePath)
+                AND wl.file_path = :filePath
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+
+                ]]>
+    </sql>
+</sqls>

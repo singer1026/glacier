@@ -1,0 +1,381 @@
+.grid-default {
+    border: 0;
+    background-color: white;
+    color: #300016;
+}
+
+#grid-move-proxy {
+    position: absolute;
+    width: 1px;
+    z-index: 10000;
+    background-color: #808080;
+    cursor: col-resize;
+}
+
+.grid-default .empty-div {
+    height: 2px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+}
+
+.grid-border {
+    border: 1px solid #a6c3eb;
+}
+
+.grid-default TABLE {
+    table-layout: auto;
+    width: auto;
+    border-collapse: collapse;
+}
+
+.grid-default .grid-head {
+    overflow: hidden;
+    background: url(../../images/grid/grid-bg.png) 0px -69px repeat-x;
+}
+
+.grid-default .grid-body {
+    overflow: auto;
+}
+
+.grid-default TH {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 24px;
+    overflow: hidden;
+}
+
+.grid-default TD {
+    padding: 0px;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+}
+
+.grid-default .grid-title-inner {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    text-align: left;
+    overflow: hidden;
+    height: 24px;
+}
+
+.grid-default .grid-cell {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    border: 0;
+    margin: 0;
+    padding: 3px 3px 3px 5px;
+    line-height: 18px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    font-weight: normal;
+}
+
+.grid-default .grid-head-filler {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 18px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.grid-head .grid-cell {
+    font-weight: bold;
+}
+
+.grid-body .grid-cell {
+    font-weight: normal;
+}
+
+.grid-default .grid-cell-move-right {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    border: 0;
+    border-right: 1px solid #d0d0d0;
+    margin: 0;
+    padding: 0;
+    height: 24px;
+    width: 9px;
+    cursor: col-resize;
+}
+
+.grid-default .grid-cell-static-right {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    border: 0;
+    border-right: 1px solid #d0d0d0;
+    margin: 0;
+    padding: 0;
+    height: 24px;
+    width: 9px;
+}
+
+.grid-default .grid-tr-odd {
+    background-color: #ffffff;
+}
+
+.grid-default .grid-tr-even {
+    background-color: #f6f6f6;
+}
+
+.grid-default .grid-row-number {
+    width: 21px;
+    text-align: center;
+}
+
+.grid-default .grid-tr-checked {
+    background-color: #FFFFCC;
+}
+
+.grid-default .grid-page-bg TABLE {
+    table-layout: auto;
+    width: auto;
+}
+
+.grid-default .grid-page TD {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    line-height: 22px;
+    vertical-align: top;
+}
+
+.grid-default .grid-page-bg {
+    height: 22px;
+    padding: 2px;
+    border-top: 1px solid #a6c3eb;
+    background: url(../../images/grid/grid-bg.png) 0px 0px repeat-x;
+    zoom: 1;
+}
+
+.grid-default .grid-page-split {
+    margin: 5px 2px 0px 2px;
+    width: 4px;
+    height: 13px;
+    display: -moz-inline-box;
+    display: inline-block;
+    background: url(../../images/grid/grid-bg.png) 0px -56px no-repeat;
+    vertical-align: top;
+}
+
+.grid-default .grid-page-number {
+    margin-left: 2px;
+    margin-right: 4px;
+}
+
+.grid-default .total-count {
+    padding-right: 2px;
+}
+
+.grid-default .grid-page-button {
+    padding: 0;
+    border: 0;
+    width: 22px;
+    height: 22px;
+    display: -moz-inline-box;
+    display: inline-block;
+    background: url(../../images/grid/grid-pagebar.png) no-repeat;
+}
+
+.grid-default .grid-page-first {
+    background-position: -44px 0px;
+}
+
+.grid-default .grid-page-first-hover {
+    background-position: -22px 0px;
+}
+
+.grid-default .grid-page-first-disabled {
+    background-position: 0px 0px;
+}
+
+.grid-default .grid-page-first-active {
+    background-position: -66px 0px;
+}
+
+.grid-default .grid-page-prev {
+    background-position: -44px -22px;
+}
+
+.grid-default .grid-page-prev-hover {
+    background-position: -22px -22px;
+}
+
+.grid-default .grid-page-prev-disabled {
+    background-position: 0px -22px;
+}
+
+.grid-default .grid-page-prev-active {
+    background-position: -66px -22px;
+}
+
+.grid-default .grid-page-next {
+    background-position: -44px -44px;
+}
+
+.grid-default .grid-page-next-hover {
+    background-position: -22px -44px;
+}
+
+.grid-default .grid-page-next-disabled {
+    background-position: 0px -44px;
+}
+
+.grid-default .grid-page-next-active {
+    background-position: -66px -44px;
+}
+
+.grid-default .grid-page-last {
+    background-position: -44px -66px;
+}
+
+.grid-default .grid-page-last-hover {
+    background-position: -22px -66px;
+}
+
+.grid-default .grid-page-last-disabled {
+    background-position: 0px -66px;
+}
+
+.grid-default .grid-page-last-active {
+    background-position: -66px -66px;
+}
+
+.grid-default .grid-page-refresh {
+    background-position: -44px -88px;
+}
+
+.grid-default .grid-page-refresh-hover {
+    background-position: -22px -88px;
+}
+
+.grid-default .grid-page-refresh-disabled {
+    background-position: 0px -88px;
+}
+
+.grid-default .grid-page-refresh-active {
+    background-position: -66px -88px;
+}
+
+.grid-default .grid-page .content-td {
+    padding-top: 5px;
+}
+
+.grid-default .grid-page .total-page {
+    margin-left: 2px;
+    margin-right: 4px;
+}
+
+.grid-default .grid-page .cur-page {
+    margin-left: 2px;
+    margin-right: 4px;
+}
+
+.grid-default .page-size-wrap {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    padding: 1px 0px 1px 0px;
+}
+
+.grid-default .page-size {
+    vertical-align: middle;
+    font-size: 10px;
+    padding: 0px;
+    outline: none;
+    height: 20px;
+    line-height: 20px;
+    color: #000000;
+}
+
+.grid-default .grid-checkbox-wrap {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    border: 0;
+    margin: 0;
+    padding: 3px 3px 3px 3px;
+    line-height: 18px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    width: 15px;
+    text-align: center;
+}
+
+.grid-default .grid-checkbox {
+    padding: 0;
+    border: 0;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    width: 13px;
+    height: 13px;
+    margin: auto auto;
+    background: url(../../images/form/checkbox.gif) no-repeat 0px 0px;
+}
+
+.grid-default .grid-checkbox-checked {
+    background: url(../../images/form/checkbox.gif) no-repeat 0px -13px;
+}
+
+.grid-default .grid-radio-wrap {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    border: 0;
+    margin: 0;
+    padding: 3px 3px 3px 3px;
+    line-height: 18px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    width: 15px;
+    text-align: center;
+}
+
+.grid-default .grid-radio {
+    padding: 0;
+    border: 0;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    width: 13px;
+    height: 13px;
+    margin: auto auto;
+    background: url(../../images/form/radio.gif) no-repeat 0px 0px;
+}
+
+.grid-default .grid-radio-checked {
+    background-position: 0px -13px;
+}
+

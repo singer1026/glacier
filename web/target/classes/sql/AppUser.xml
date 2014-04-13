@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+
+                ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+
+                ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM app_user WHERE TRUE
+            #parse("AppUser.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND id = :id
+            #end
+            #if($loginId)
+                AND login_id = :loginId
+            #end
+            #if($companyId)
+                AND company_id = :companyId
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO app_user (gmt_create, creator, gmt_modify, modifier, gmt_last_login, is_deleted,
+            version, status, login_id, password, company_id, type, name, sex, address, qq, email, telephone, mobile, last_login_ip)
+            VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :gmtLastLogin, :isDeleted, :version, :status,
+            :loginId, :password, :companyId, :type, :name, :sex,:address,:qq, :email,:telephone, :mobile, :lastLoginIp)
+        ]]>
+    </sql>
+    <sql id="UPDATE">
+        <![CDATA[
+            UPDATE app_user SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            name = :name,
+            sex = :sex,
+            address = :address,
+            qq = :qq,
+            email = :email,
+            telephone = :telephone,
+            mobile = :mobile
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="UPDATE_STATUS">
+        <![CDATA[
+            UPDATE app_user SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            status = :status
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="UPDATE_PASSWORD">
+        <![CDATA[
+            UPDATE app_user SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            version = :version + 1,
+            password = :password
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+    <sql id="UPDATE_LOGIN">
+        <![CDATA[
+            UPDATE app_user SET
+            gmt_last_login = :gmtLastLogin,
+            last_login_ip = :lastLoginIp
+            WHERE id = :id
+            ]]>
+    </sql>
+    <sql id="DELETE">
+        <![CDATA[
+            UPDATE app_user SET
+            gmt_modify = :gmtModify,
+            modifier = :modifier,
+            is_deleted= 'y',
+            status = 'lock',
+            version = :version + 1
+            WHERE id = :id AND version = :version
+        ]]>
+    </sql>
+</sqls>

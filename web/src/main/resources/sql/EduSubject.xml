@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM edu_subject s WHERE s.is_deleted='n'
+            #parse("EduSubject.CONDITION")
+            #parse("Common.PAGINATION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND s.id = :id
+            #end
+            #if($companyId)
+                AND s.company_id = :companyId
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO edu_subject (gmt_create, creator, gmt_modify, modifier, is_deleted, version,
+            company_id, name)
+            VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :isDeleted, :version, :companyId,
+            :name)
+        ]]>
+    </sql>
+</sqls>

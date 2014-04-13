@@ -1,0 +1,176 @@
+.win {
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.win-center-center {
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.win-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.win-default .win-top-left, .win-default .win-top-right, .win-default .win-center-left,
+.win-default .win-center-right, .win-default .win-bottom-left, .win-default .win-bottom-right,
+.win-default .win-button-min, .win-default .win-button-max, .win-default .win-button-max-able, .win-default .win-button-close {
+    background-image: url("../../images/window/window-default-bg.png");
+    background-repeat: no-repeat;
+}
+
+.win-default .win-top-left {
+    background-position: -122px -10px;
+}
+
+.win-default .win-top-center, .win-default .win-bottom-center {
+    background: url("../../images/window/window-default-x.png") repeat-x scroll 0 0 transparent;
+}
+
+.win-default .win-top-center {
+    padding: 0px 0px 0px 0px;
+    background-position: 0px -7px;
+}
+
+.win-default .win-top-right {
+    background-position: -137px -10px;
+}
+
+.win-default .win-center-left, .win-default .win-center-right {
+    background-repeat: repeat-y;
+}
+
+.win-default .win-center-left {
+    background-position: -7px 0px;
+    width: 6px;
+}
+
+.win-default .win-center-right {
+    background-position: -15px 0;
+    width: 6px;
+}
+
+.win-default .win-bottom-left {
+    background-position: -162px -23px;
+}
+
+.win-default .win-bottom-right {
+    background-position: -175px -23px;
+}
+
+.win-default .win-bottom-center {
+    background-position: 0 -33px;
+    height: 6px;
+}
+
+.win-default .win-top-center-left {
+    padding: 0px;
+    float: left;
+    vertical-align: top;
+}
+
+.win-default .win-top-center-right {
+    padding: 4px 0px 0px 0px;
+    height: 18px;
+    line-height: 18px;
+    float: right;
+    vertical-align: top;
+}
+
+.win-default .win-icon-wrap {
+    padding-top: 5px;
+    float: left;
+    height: 16px;
+    width: 16px;
+}
+
+.win-default .win-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.win-default .win-title {
+    color: #FFFFFF;
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 2px;
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.win-default .win-button {
+    cursor: default;
+    float: left;
+    height: 18px;
+    width: 19px;
+}
+
+.win-default .win-button-min {
+    background-position: -31px 0;
+    margin-right: 2px;
+}
+
+.win-default .win-button-min-over {
+    background-position: -31px -19px;
+}
+
+.win-default .win-button-max {
+    background-position: -51px 0;
+    margin-right: 2px;
+}
+
+.win-default .win-button-max-over {
+    background-position: -51px -19px;
+}
+
+.win-default .win-button-max-able {
+    margin-right: 2px;
+    display: none;
+    background-position: -91px 0;
+}
+
+.win-default .win-button-max-able-over {
+    background-position: -91px -19px;
+}
+
+.win-default .win-button-close {
+    background-position: -71px 0;
+}
+
+.win-default .win-button-close-over {
+    background-position: -71px -19px;
+}
+
+.win-task {
+    background: url(../../images/window/window_task.png) no-repeat;
+    float: left;
+    color: black;
+    margin-left: 2px;
+    width: 97px;
+    padding-left: 3px;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.win-task-focus {
+    background: url(../../images/window/window_task_focus.bmp) no-repeat !important;
+    width: 96px !important;
+    padding-left: 4px !important;
+}
+
+.dotted-frame {
+    border: 1px dashed #3B5A82;
+    position: absolute;
+    cursor: move;
+}

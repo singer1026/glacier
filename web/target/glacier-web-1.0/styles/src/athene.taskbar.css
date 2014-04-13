@@ -1,0 +1,112 @@
+.taskbar-left {
+    padding: 2px 0px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../../images/window/window_toolbar.png) repeat-x;
+    float: left;
+}
+
+.taskbar-right {
+    float: left;
+    height: 44px;
+}
+
+.win-min-all {
+    display: inline-block;
+    vertical-align: top;
+    width: 15px;
+    height: 44px;
+    background: url(../../images/window/window_start.png) no-repeat;
+    background-position: -64px 0px;
+}
+
+.win-min-all-hover {
+    background-position: -79px 0px;
+}
+
+.win-min-all-active {
+    background-position: -94px 0px;
+}
+
+.taskbar-start-wrap {
+    display: inline-block;
+    vertical-align: top;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+}
+
+.taskbar-start {
+    background: url(../../images/window/window_start.png) no-repeat;
+    background-position: 0px 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.taskbar-start-hover {
+    background-position: -32px 0px;
+}
+
+.taskbar-task-list-wrap {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.taskbar-task-list {
+    height: 40px;
+    width: 10000px;
+}
+
+.taskbar-task-wrap {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 1px;
+    visibility: hidden;
+    opacity: 0.01;
+    overflow: hidden;
+}
+
+.taskbar-task {
+    background: url(../../images/window/window_task_all.png) no-repeat;
+    background-position: 0px 0px;
+    width: 146px;
+    height: 32px;
+    padding: 4px 4px 4px 10px;
+    overflow: hidden;
+}
+
+.taskbar-task-proxy {
+    position: absolute;
+    visibility: visible;
+    z-index: 10001;
+    background-color: #8194aa;
+}
+
+.taskbar-task-hover {
+    background-position: 0px -40px;
+}
+
+.taskbar-task-icon {
+    display: inline-block;
+    vertical-align: top;
+    width: 32px;
+    height: 32px;
+}
+
+.taskbar-task-content {
+    display: inline-block;
+    vertical-align: top;
+    width: 106px;
+    height: 16px;
+    padding: 8px 4px 8px 4px;
+    line-height: 16px;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

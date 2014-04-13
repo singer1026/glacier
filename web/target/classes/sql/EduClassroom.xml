@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="QUERY_COUNT">
+        <![CDATA[
+                ]]>
+    </sql>
+    <sql id="QUERY">
+        <![CDATA[
+                ]]>
+    </sql>
+    <sql id="SELECT">
+        <![CDATA[
+            SELECT * FROM edu_classroom cr WHERE cr.is_deleted='n'
+            #parse("EduClassroom.CONDITION")
+        ]]>
+    </sql>
+    <sql id="CONDITION">
+        <![CDATA[
+            #if($id)
+                AND cr.id = :id
+            #end
+            #if($companyId)
+                AND cr.company_id = :companyId
+            #end
+        ]]>
+    </sql>
+    <sql id="INSERT">
+        <![CDATA[
+            INSERT INTO edu_classroom (gmt_create, creator, gmt_modify, modifier, is_deleted, company_id,
+            type, name, description)
+            VALUES (:gmtCreate, :creator, :gmtModify, :modifier, :isDeleted, :companyId, :type, :name,
+            :description)
+        ]]>
+    </sql>
+</sqls>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+    <sql id="PAGINATION">
+        <![CDATA[
+        #if($startIndex && $pageSize)
+            LIMIT $startIndex,$pageSize
+        #end
+        ]]>
+    </sql>
+    <sql id="ORDERING">
+        <![CDATA[
+        #if($ordering)
+            ORDER BY
+            #foreach($column in $ordering)
+                $column#if($velocityCount != $ordering.size()),#end
+            #end
+        #end
+        ]]>
+    </sql>
+</sqls>

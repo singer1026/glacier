@@ -1,0 +1,209 @@
+.dialog {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0.01;
+    visibility: hidden;
+}
+
+.dialog-center-center {
+    background-color: #fff;
+}
+
+.dialog-content {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.dialog-default .dialog-top-left, .dialog-default .dialog-top-right, .dialog-default .dialog-center-left,
+.dialog-default .dialog-center-right, .dialog-default .dialog-bottom-left, .dialog-default .dialog-bottom-right,
+.dialog-default .dialog-button-min, .dialog-default .dialog-button-max, .dialog-default .dialog-button-close {
+    background-image: url("../../images/dialog/dialog_default_bg.gif");
+    background-repeat: no-repeat;
+}
+
+.dialog-default .dialog-top-left {
+    width: 5px;
+    background-position: -139px -8px;
+}
+
+.dialog-default .dialog-top-center, .dialog-default .dialog-bottom-center {
+    background: url("../../images/dialog/dialog_default_x.gif") repeat-x scroll 0 0 transparent;
+}
+
+.dialog-default .dialog-top-right {
+    width: 5px;
+    background-position: -146px -8px;
+}
+
+.dialog-default .dialog-center-left, .dialog-default .dialog-center-right {
+    background-repeat: repeat-y;
+}
+
+.dialog-default .dialog-center-left {
+    background-position: -153px 0;
+}
+
+.dialog-default .dialog-center-right {
+    background-position: -158px 0;
+}
+
+.dialog-default .dialog-bottom-left {
+    background-position: -139px -2px;
+}
+
+.dialog-default .dialog-bottom-right {
+    background-position: -146px -2px;
+}
+
+.dialog-default .dialog-bottom-center {
+    height: 5px;
+    background-position: 0 -26px;
+}
+
+.dialog-default .dialog-icon-title {
+    float: left;
+    height: 26px;
+}
+
+.dialog-default .dialog-icon {
+    float: left;
+    margin-top: 4px;
+    height: 16px;
+    width: 16px;
+}
+
+.dialog-default .dialog-title {
+    color: #FFFFFF;
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 4px;
+}
+
+.dialog-default .dialog-button-min, .dialog-default .dialog-button-max, .dialog-default .dialog-button-close {
+    cursor: default;
+    display: block;
+    height: 18px;
+    margin-top: 1px;
+    float: right;
+}
+
+.dialog-default .dialog-button-min {
+    background-position: -31px 0;
+    margin-right: 2px;
+}
+
+.dialog-default .dialog-button-min-over {
+    background-position: -31px -19px;
+}
+
+.dialog-default .dialog-button-max {
+    background-position: -51px 0;
+    margin-right: 2px;
+}
+
+.dialog-default .dialog-button-max-over {
+    background-position: -51px -19px;
+}
+
+.dialog-default .dialog-button-close {
+    width: 44px;
+    background-position: -75px 0;
+}
+
+.dialog-default .dialog-button-close-over {
+    background-position: -75px -18px;
+}
+
+.dialog-default .dialog-content-button {
+    background-color: #F6F6F6;
+    border-top: 1px solid #DADEE5;
+    height: 24px;
+    line-height: 24px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.dialog-default .dialog-content-message TABLE {
+    width: auto;
+    margin: 0 auto;
+}
+
+.dialog-default .dialog-content-message-icon {
+    padding: 20px;
+}
+
+.dialog-default .dialog-content-message-word {
+    padding: 20px 20px 20px 0px;
+    line-height: 18px;
+    text-align: left;
+    color: #333333;
+    width: 100%;
+}
+
+.dialog-default .dialog-content-message-exception {
+    font-size: 11px;
+    font-family: Arial, sans-serif, Helvetica, Tahoma;
+    width: 100%;
+    height: 250px;
+}
+
+.dialog-default .dialog-icon-img {
+    background: url("../../images/dialog/dialog_icon.png");
+    display: -moz-inline-box;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+}
+
+.dialog-default .dialog-icon-img-small {
+    background: url("../../images/dialog/dialog_icon.png") no-repeat;
+    display: -moz-inline-box;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.dialog-default .dialog-icon-alert {
+    background-position: -96px 0px;
+}
+
+.dialog-default .dialog-icon-alert-small {
+    background-position: -32px -48px;
+}
+
+.dialog-default .dialog-icon-error {
+    background-position: -144px 0px;
+}
+
+.dialog-default .dialog-icon-error-small {
+    background-position: -48px -48px;
+}
+
+.dialog-default .dialog-icon-warning {
+    background-position: -192px 0px;
+}
+
+.dialog-default .dialog-icon-warning-small {
+    background-position: -64px -48px;
+}
+
+.dialog-default .dialog-icon-ok {
+    background-position: -48px 0px;
+}
+
+.dialog-default .dialog-icon-ok-small {
+    background-position: -16px -48px;
+}
+
+.dialog-default .dialog-icon-confirm {
+    background-position: 0px 0px;
+}
+
+.dialog-default .dialog-icon-confirm-small {
+    background-position: -0px -48px;
+}
