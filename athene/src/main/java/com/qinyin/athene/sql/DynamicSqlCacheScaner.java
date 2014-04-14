@@ -17,6 +17,7 @@ public class DynamicSqlCacheScaner implements Runnable {
     public void run() {
         while (true) {
             try {
+            		//刷新sql 缓存
                 DynamicSqlCache.getInstance().refreshSqlCache();
                 Thread.sleep(interval);
             } catch (Exception e) {

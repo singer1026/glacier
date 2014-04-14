@@ -16,6 +16,7 @@ import java.util.Properties;
 public class VelocityTemplateFactory implements TemplateFactory {
 
     public void init(Properties properties) throws Exception {
+    	//初始化 模板参数
         Velocity.init(properties);
     }
 

@@ -53,6 +53,11 @@
     <bean id="cookieUtil" class="com.qinyin.athene.login.CookieUtil" init-method="init"/>
     <bean id="sessionFactory" class="com.qinyin.athene.login.SessionFactory" init-method="init"/>
     <bean id="pvgInfo" class="com.qinyin.athene.login.PrivilegeInfo" scope="request">
+    	<!--  
+    		这个代理只随着 PrivilegeInfo request的创建而创建，销毁而销毁。 
+    		项目启动 加载 web.xml，首先加载spring ，通过注入生成对象，初始化方法
+    		init，加载完成后，在进行加载 Servlet 的 load-on-startup 类
+    	-->
         <aop:scoped-proxy/>
     </bean>
     <bean id="jdbcDao" class="com.qinyin.athene.dao.impl.JdbcDaoImpl"/>

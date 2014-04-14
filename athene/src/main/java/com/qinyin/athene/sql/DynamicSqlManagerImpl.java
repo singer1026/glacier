@@ -24,13 +24,16 @@ public class DynamicSqlManagerImpl implements DynamicSqlManager {
         ClassLoader classLoader = this.getClass().getClassLoader();
         InputStream in = classLoader.getResource("dynamicSql.properties").openStream();
         properties.load(in);
+        //遍历获取 dynamicSql.properties 包含 velocity. 开始的内容
         Properties vmProperties = fetchVelocityProperties(properties);
-        DynamicSqlCache.getInstance().init(vmProperties.getProperty("cache.sql.path"));
+       //初始化DynamicSqlCache  获取模板的sql 配置路径
+        DynamicSqlCache.getInstance().init(vmProperties.getProperty("cache.sql.path"));	
         VelocityTemplateFactory.init(vmProperties);
-        String intervalS = vmProperties.getProperty("cache.check.interval");
+        String intervalS = vmProperties.getProperty("cache.check.interval");	// 检查模板缓存的间隔
         if (StringUtils.isNotBlank(intervalS)) {
             long intervalL = Long.parseLong(intervalS);
             if (intervalL > 0) {
+            	//间隔5秒 开启线程  动态扫描 sql 缓存 进行刷新
                 DynamicSqlCacheScaner scaner = new DynamicSqlCacheScaner(intervalL * 1000);
                 Thread thread = new Thread(scaner);
                 thread.start();
