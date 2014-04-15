@@ -76,6 +76,7 @@ public class DynamicSqlCache {
                 if (fileCache.get(file.getName()) == null ||
                         fileCache.get(file.getName()).longValue() != lastModified) {
                     log.debug(file.getName() + " has changed , reload now");
+                    //解析sql 文件下的 sql.xml 配置文件
                     parseOneSqlXml(file);
                     fileCache.put(file.getName(), Long.valueOf(lastModified));
                 }
@@ -83,11 +84,16 @@ public class DynamicSqlCache {
         }
     }
 
+    /**
+     * 解析sql 文件下的 sql.xml 配置文件
+     * @param file
+     * @throws Exception
+     */
     private void parseOneSqlXml(File file) throws Exception {
         SAXReader reader = new SAXReader();
         Document document = reader.read(file);
         Element root = document.getRootElement();
-        if (StringUtils.equals(root.getName(), "sqls")) {
+        if (StringUtils.equals(root.getName(), "sqls")) {	//遍历 sql 节点
             String fileName = file.getName();
             String idPrefix = fileName.substring(0, fileName.length() - ".sql".length());
             for (Iterator i = root.elementIterator("sql"); i.hasNext(); ) {

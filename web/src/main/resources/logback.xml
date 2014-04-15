@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+	<!-- 控制台输出 -->
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <!--<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
             <evaluator>
@@ -11,6 +12,7 @@
             <OnMatch>DENY</OnMatch>
         </filter>
         -->
+        <!-- 特定过滤含有某字符串的日志 -->
         <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
             <evaluator>
                 <expression>message.contains("AppUrl-")
@@ -46,6 +48,7 @@
             <OnMismatch>NEUTRAL</OnMismatch>
             <OnMatch>DENY</OnMatch>
         </filter>
+        <!-- 时间滚动输出 level为 ERROR 日志 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>D:\log\glacier-%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>365</maxHistory>
